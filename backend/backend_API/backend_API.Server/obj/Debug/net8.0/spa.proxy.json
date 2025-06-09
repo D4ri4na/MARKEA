@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:56506",
+"RedirectUrl": "",
+"LaunchCommand": "npm run dev",
+"WorkingDirectory": "C:\\Users\\dpola\\MARKEA\\backend\\backend_API\\backend_API.Server\\..\\backend_api.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}
