@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "UsuariosController",
+    "Method": "RegistrarUsuario",
+    "RelativePath": "api/Usuarios/registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nuevoUsuario",
+        "Type": "RegistroUsuarioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

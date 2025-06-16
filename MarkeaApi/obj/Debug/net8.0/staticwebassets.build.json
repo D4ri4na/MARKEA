@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "byIPAQ1zm8h1g5m/ftVaYHNKcKoI1ENeLRiNzpeF5ag=",
+  "Source": "MarkeaApi",
+  "BasePath": "_content/MarkeaApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

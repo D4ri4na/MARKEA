@@ -1,0 +1,6 @@
+@MarkeaApi_HostAddress = http://localhost:5125
+
+GET {{MarkeaApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,1 +1,0 @@
-C:\Users\dpola\MARKEA\backend\backend_API\backend_api.client\obj\Debug\backend_api.client.esproj.CoreCompileInputs.cache
