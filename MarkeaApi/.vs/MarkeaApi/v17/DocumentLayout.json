@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3B692CB2-9DDA-4ED1-8785-B8B647ADB6FD}|MarkeaApi.csproj|c:\\users\\dpola\\markea\\markeaapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B692CB2-9DDA-4ED1-8785-B8B647ADB6FD}|MarkeaApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B692CB2-9DDA-4ED1-8785-B8B647ADB6FD}|MarkeaApi.csproj|c:\\users\\dpola\\markea\\markeaapi\\servicios\\serviciosusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B692CB2-9DDA-4ED1-8785-B8B647ADB6FD}|MarkeaApi.csproj|solutionrelative:servicios\\serviciosusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3B692CB2-9DDA-4ED1-8785-B8B647ADB6FD}|MarkeaApi.csproj|c:\\users\\dpola\\markea\\markeaapi\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3B692CB2-9DDA-4ED1-8785-B8B647ADB6FD}|MarkeaApi.csproj|solutionrelative:controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3B692CB2-9DDA-4ED1-8785-B8B647ADB6FD}|MarkeaApi.csproj|c:\\users\\dpola\\markea\\markeaapi\\modelos\\registrousuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B692CB2-9DDA-4ED1-8785-B8B647ADB6FD}|MarkeaApi.csproj|solutionrelative:modelos\\registrousuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B692CB2-9DDA-4ED1-8785-B8B647ADB6FD}|MarkeaApi.csproj|c:\\users\\dpola\\markea\\markeaapi\\controllers\\repositoriousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B692CB2-9DDA-4ED1-8785-B8B647ADB6FD}|MarkeaApi.csproj|solutionrelative:controllers\\repositoriousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B692CB2-9DDA-4ED1-8785-B8B647ADB6FD}|MarkeaApi.csproj|c:\\users\\dpola\\markea\\markeaapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B692CB2-9DDA-4ED1-8785-B8B647ADB6FD}|MarkeaApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B692CB2-9DDA-4ED1-8785-B8B647ADB6FD}|MarkeaApi.csproj|c:\\users\\dpola\\markea\\markeaapi\\modelos\\sesionusuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B692CB2-9DDA-4ED1-8785-B8B647ADB6FD}|MarkeaApi.csproj|solutionrelative:modelos\\sesionusuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,19 +30,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-16T21:45:42.817Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ServiciosUsuarios.cs",
+              "DocumentMoniker": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\Servicios\\ServiciosUsuarios.cs",
+              "RelativeDocumentMoniker": "Servicios\\ServiciosUsuarios.cs",
+              "ToolTip": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\Servicios\\ServiciosUsuarios.cs",
+              "RelativeToolTip": "Servicios\\ServiciosUsuarios.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T21:15:30.011Z",
               "EditorCaption": ""
             },
             {
@@ -45,23 +67,35 @@
               "RelativeDocumentMoniker": "Controllers\\UsuariosController.cs",
               "ToolTip": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\Controllers\\UsuariosController.cs",
               "RelativeToolTip": "Controllers\\UsuariosController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAACwAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowBEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T21:42:06.934Z",
+              "WhenOpened": "2025-06-18T21:09:24.64Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "RegistroUsuarioDto.cs",
-              "DocumentMoniker": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\Modelos\\RegistroUsuarioDto.cs",
-              "RelativeDocumentMoniker": "Modelos\\RegistroUsuarioDto.cs",
-              "ToolTip": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\Modelos\\RegistroUsuarioDto.cs",
-              "RelativeToolTip": "Modelos\\RegistroUsuarioDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
+              "Title": "RepositorioUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\Controllers\\RepositorioUsuario.cs",
+              "RelativeDocumentMoniker": "Controllers\\RepositorioUsuario.cs",
+              "ToolTip": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\Controllers\\RepositorioUsuario.cs",
+              "RelativeToolTip": "Controllers\\RepositorioUsuario.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAUwCAAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T21:41:22.033Z",
+              "WhenOpened": "2025-06-18T14:39:03.344Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SesionUsuarioDto.cs",
+              "DocumentMoniker": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\Modelos\\SesionUsuarioDto.cs",
+              "RelativeDocumentMoniker": "Modelos\\SesionUsuarioDto.cs",
+              "ToolTip": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\Modelos\\SesionUsuarioDto.cs",
+              "RelativeToolTip": "Modelos\\SesionUsuarioDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T22:25:46.03Z"
             }
           ]
         }

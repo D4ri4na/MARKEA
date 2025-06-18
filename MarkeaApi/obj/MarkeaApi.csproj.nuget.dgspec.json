@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\MarkeaApi.csproj": {}
+    "C:\\Users\\dpola\\MARKEA\\MarkeaAPI\\MarkeaApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\MarkeaApi.csproj": {
+    "C:\\Users\\dpola\\MARKEA\\MarkeaAPI\\MarkeaApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\MarkeaApi.csproj",
+        "projectUniqueName": "C:\\Users\\dpola\\MARKEA\\MarkeaAPI\\MarkeaApi.csproj",
         "projectName": "MarkeaApi",
-        "projectPath": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\MarkeaApi.csproj",
+        "projectPath": "C:\\Users\\dpola\\MARKEA\\MarkeaAPI\\MarkeaApi.csproj",
         "packagesPath": "C:\\Users\\dpola\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\obj\\",
+        "outputPath": "C:\\Users\\dpola\\MARKEA\\MarkeaAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

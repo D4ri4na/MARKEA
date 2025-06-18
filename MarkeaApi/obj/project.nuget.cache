@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0tzoHaU8pd8=",
+  "dgSpecHash": "UrcDGl7EWzg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\dpola\\MARKEA\\MarkeaApi\\MarkeaApi.csproj",
+  "projectFilePath": "C:\\Users\\dpola\\MARKEA\\MarkeaAPI\\MarkeaApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dpola\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\dpola\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

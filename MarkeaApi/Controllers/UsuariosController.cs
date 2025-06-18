@@ -2,13 +2,33 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Threading.Tasks;
 
 [ApiController]
 [Route("api/[controller]")]
 public class UsuariosController : ControllerBase
 {
     private readonly string cadenaConexion = "Server=MSI\\MSSQLSERVER01;Database=MARKEA;Integrated Security=True;TrustServerCertificate=True;";
+    private readonly ServiciosUsuarios _serviciosUsuarios;
 
+    public UsuariosController(ServiciosUsuarios serviciosUsuarios)
+    {
+        _serviciosUsuarios = serviciosUsuarios;
+    }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] IniciarSesionDto loginRequest)
+    {
+        try
+        {
+            var userSession = await _serviciosUsuarios.Login(loginRequest);
+            return Ok(userSession);
+        }
+        catch (Exception ex)
+        {
+            return Unauthorized(new { message = ex.Message });
+        }
+    }
     [HttpPost("registrar")]
     public IActionResult RegistrarUsuario([FromBody] RegistroUsuarioDto nuevoUsuario)
     {
@@ -20,7 +40,7 @@ public class UsuariosController : ControllerBase
 
                 using (var comando = new SqlCommand("sp_registrar_usuario", conexion))
                 {
-                    comando.CommandType = CommandType.StoredProcedure; 
+                    comando.CommandType = CommandType.StoredProcedure;
 
                     comando.Parameters.AddWithValue("@usuario", nuevoUsuario.Nombre);
                     comando.Parameters.AddWithValue("@correo", nuevoUsuario.Correo);
@@ -34,7 +54,7 @@ public class UsuariosController : ControllerBase
         }
         catch (SqlException ex)
         {
-            if (ex.Number == 50000) 
+            if (ex.Number == 50000)
             {
                 return Conflict(new { message = "El correo electrónico ya está registrado." });
             }
