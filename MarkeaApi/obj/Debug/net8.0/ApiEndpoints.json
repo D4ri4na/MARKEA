@@ -1,5 +1,77 @@
 [
   {
+    "ContainingType": "ProductosController",
+    "Method": "ObtenerProductos",
+    "RelativePath": "api/Productos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProductosController",
+    "Method": "ObtenerImagen",
+    "RelativePath": "api/Productos/{id}/imagen",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProductosController",
+    "Method": "PublicarProducto",
+    "RelativePath": "api/Productos/publicar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdVendedor",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "IdCategoria",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Nombre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Descripcion",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Precio",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Stock",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Imagen",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "UsuariosController",
     "Method": "Login",
     "RelativePath": "api/Usuarios/login",
@@ -26,6 +98,22 @@
       {
         "Name": "nuevoUsuario",
         "Type": "RegistroUsuarioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VentasController",
+    "Method": "Checkout",
+    "RelativePath": "api/Ventas/checkout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "checkoutRequest",
+        "Type": "CheckoutRequestDto",
         "IsRequired": true
       }
     ],

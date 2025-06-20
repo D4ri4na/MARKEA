@@ -5,6 +5,113 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Productos/publicar": {
+      "post": {
+        "tags": [
+          "Productos"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "IdVendedor": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "IdCategoria": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Nombre": {
+                    "type": "string"
+                  },
+                  "Descripcion": {
+                    "type": "string"
+                  },
+                  "Precio": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Stock": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Imagen": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "IdVendedor": {
+                  "style": "form"
+                },
+                "IdCategoria": {
+                  "style": "form"
+                },
+                "Nombre": {
+                  "style": "form"
+                },
+                "Descripcion": {
+                  "style": "form"
+                },
+                "Precio": {
+                  "style": "form"
+                },
+                "Stock": {
+                  "style": "form"
+                },
+                "Imagen": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Productos": {
+      "get": {
+        "tags": [
+          "Productos"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Productos/{id}/imagen": {
+      "get": {
+        "tags": [
+          "Productos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Usuarios/login": {
       "post": {
         "tags": [
@@ -66,10 +173,76 @@
           }
         }
       }
+    },
+    "/api/Ventas/checkout": {
+      "post": {
+        "tags": [
+          "Ventas"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckoutRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckoutRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckoutRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "CartItemDto": {
+        "type": "object",
+        "properties": {
+          "idProducto": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "precio": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CheckoutRequestDto": {
+        "type": "object",
+        "properties": {
+          "idComprador": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CartItemDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "IniciarSesionDto": {
         "type": "object",
         "properties": {

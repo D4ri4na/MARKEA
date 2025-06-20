@@ -1,5 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", app =>
@@ -10,6 +11,12 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddSingleton<MongoDbService>();
+
+builder.Services.AddScoped<ProductoRepositorio>();
+builder.Services.AddScoped<ProductoService>();
+
+builder.Services.AddScoped<VentaRepositorio>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer(); 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MarkeaApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7b713c056ac0788d1400a6562e77712d3a2bca3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+765b95fa8ff942d671bfa4ddcc3239e6c5be8590")]
 [assembly: System.Reflection.AssemblyProductAttribute("MarkeaApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MarkeaApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

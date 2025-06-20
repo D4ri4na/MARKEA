@@ -171,3 +171,9 @@ C:\Users\dpola\MARKEA\MarkeaApi\obj\Debug\net8.0\refint\MarkeaApi.dll
 C:\Users\dpola\MARKEA\MarkeaApi\obj\Debug\net8.0\MarkeaApi.pdb
 C:\Users\dpola\MARKEA\MarkeaApi\obj\Debug\net8.0\MarkeaApi.genruntimeconfig.cache
 C:\Users\dpola\MARKEA\MarkeaApi\obj\Debug\net8.0\ref\MarkeaApi.dll
+C:\Users\dpola\MARKEA\MarkeaAPI\bin\Debug\net8.0\DnsClient.dll
+C:\Users\dpola\MARKEA\MarkeaAPI\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\dpola\MARKEA\MarkeaAPI\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\dpola\MARKEA\MarkeaAPI\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\dpola\MARKEA\MarkeaAPI\bin\Debug\net8.0\Snappier.dll
+C:\Users\dpola\MARKEA\MarkeaAPI\bin\Debug\net8.0\ZstdSharp.dll
