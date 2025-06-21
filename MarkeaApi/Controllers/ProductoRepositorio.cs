@@ -61,4 +61,68 @@ public class ProductoRepositorio
             }
         }
     }
+    public async Task<IEnumerable<ProductoVentaDto>> ObtenerPorVendedorAsync(int idVendedor)
+    {
+        var productos = new List<ProductoVentaDto>();
+        using (var connection = new SqlConnection(_connectionString))
+        {
+            await connection.OpenAsync();
+            using (var command = new SqlCommand("sp_obtener_productos_por_vendedor", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@id_vendedor", idVendedor);
+
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        productos.Add(new ProductoVentaDto
+                        {
+                            Id = (int)reader["Id"],
+                            Nombre = (string)reader["nombre"],
+                            Descripcion = (string)reader["descripcion"],
+                            Precio = (decimal)reader["precio"],
+                            Stock = (int)reader["stock"],
+                            Estado = (string)reader["Estado"]
+                        });
+                    }
+                }
+            }
+        }
+        return productos;
+    }
+
+    public async Task ActualizarCompletoAsync(int idProducto, ActualizarProductoDto dto)
+    {
+        using (var connection = new SqlConnection(_connectionString))
+        {
+            await connection.OpenAsync();
+            using (var command = new SqlCommand("sp_actualizar_producto_completo", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@id_producto", idProducto);
+                command.Parameters.AddWithValue("@nombre", dto.Nombre);
+                command.Parameters.AddWithValue("@descripcion", dto.Descripcion);
+                command.Parameters.AddWithValue("@precio", dto.Precio);
+                command.Parameters.AddWithValue("@stock", dto.Stock);
+
+                await command.ExecuteNonQueryAsync();
+            }
+        }
+    }
+
+    public async Task EliminarAsync(int idProducto)
+    {
+        using (var connection = new SqlConnection(_connectionString))
+        {
+            await connection.OpenAsync();
+            using (var command = new SqlCommand("sp_eliminar_producto", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@id_producto", idProducto);
+
+                await command.ExecuteNonQueryAsync();
+            }
+        }
+    }
 }

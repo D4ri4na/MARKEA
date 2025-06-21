@@ -56,4 +56,25 @@ public class ProductosController : ControllerBase
         // Devuelve la imagen directamente como un archivo
         return File(imagen.ImagenData, imagen.ContentType);
     }
+
+    // En ProductosController.cs
+
+    // ...
+    [HttpPut("{id}")]
+    public async Task<IActionResult> ActualizarProducto(int id, [FromBody] ActualizarProductoDto dto)
+    {
+        // Esta línea ahora funcionará y la advertencia desaparecerá
+        await _productoRepositorio.ActualizarCompletoAsync(id, dto);
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> EliminarProducto(int id)
+    {
+        // Esta línea ahora funcionará y la advertencia desaparecerá
+        await _productoRepositorio.EliminarAsync(id);
+        return NoContent();
+    }
+    // ...
+
 }

@@ -40,4 +40,33 @@ public class VentaRepositorio
             }
         }
     }
+    public async Task<IEnumerable<CompraRecienteDto>> ObtenerPorCompradorAsync(int idComprador)
+    {
+        var compras = new List<CompraRecienteDto>();
+        using (var connection = new SqlConnection(_connectionString))
+        {
+            await connection.OpenAsync();
+            using (var command = new SqlCommand("sp_obtener_compras_por_comprador", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@id_comprador", idComprador);
+
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        compras.Add(new CompraRecienteDto
+                        {
+                            Id = (int)reader["Id"],
+                            NombreProducto = (string)reader["NombreProducto"],
+                            Precio = (decimal)reader["Precio"],
+                            Fecha = (System.DateTime)reader["fecha"],
+                            NombreVendedor = (string)reader["NombreVendedor"]
+                        });
+                    }
+                }
+            }
+        }
+        return compras;
+    }
 }
