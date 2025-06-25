@@ -58,6 +58,7 @@ Este README sirve como **guía integral** para comprender el proyecto y ejecutar
 ---
 
 ## 📁 Estructura del Repositorio
+
 ├── 📁 MarkeaApi/ # Código fuente del backend (.NET)
 ├── 📁 interfaz/ # Código fuente del frontend (React)
 ├── 📁 BDD/ # Scripts, diagramas y backups de SQL Server
@@ -81,7 +82,8 @@ Este README sirve como **guía integral** para comprender el proyecto y ejecutar
 
 1. Abre **SQL Server Management Studio**.
 2. Restaura la base de datos usando el archivo `.bak` en `/BDD`.
-3. Asegúrate de que **MongoDB** esté ejecutándose en tu máquina.
+3. Abre **MongoDB**.
+4. Restaura la base de datos usando el archivo `.bak` en `/BDD`.
 
 ---
 
@@ -90,19 +92,19 @@ Este README sirve como **guía integral** para comprender el proyecto y ejecutar
 # Navega al backend
 cd MarkeaApi
 
-# Actualiza la cadena de conexión en appsettings.json
+# Actualiza la cadena de conexión en las carpetas de conexion en MarkeaApi
 
 # Restaura las dependencias
 dotnet restore
 
 # Inicia la API
 dotnet run
-La API estará disponible en https://localhost:7XXX (según tu configuración).
+La API estará disponible en https://localhost:7020 
+
+---
 
 ###💻 3. Configuración del Frontend (React)
-bash
-Copiar
-Editar
+
 # Navega al frontend
 cd interfaz
 
@@ -110,10 +112,11 @@ cd interfaz
 npm install
 
 # Ejecuta la app
-npm start
-La aplicación se abrirá en http://localhost:3000.
+npm run dev
+La aplicación se abrirá en http://localhost:8080.
 
 ###👥 Autores
+
 Dariana Pol Aramayo – Desarrollo Completo
 GitHub: D4ri4na
 
