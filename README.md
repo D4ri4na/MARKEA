@@ -1,4 +1,4 @@
-# 🛍️ MARKEA - Plataforma de Comercio Electrónico C2C
+# 🛍️ MARKEA - Plataforma de Comercio Electrónico
 
 **MARKEA** es un mercado digital **C2C (consumidor a consumidor)** moderno, intuitivo y eficiente, diseñado para facilitar la conexión entre vendedores y compradores en un entorno seguro y fácil de usar.
 
@@ -59,11 +59,11 @@ Este README sirve como **guía integral** para comprender el proyecto y ejecutar
 
 ## 📁 Estructura del Repositorio
 
-  ├── 📁 MarkeaApi/ # Código fuente del backend (.NET)
-  ├── 📁 interfaz/ # Código fuente del frontend (React)
-  ├── 📁 BDD/ # Scripts, diagramas y backups de SQL Server
-  ├── 📄 .gitignore # Archivos ignorados por Git
-  └── 📄 README.md # Este archivo
+  - ├── 📁 MarkeaApi/ # Código fuente del backend (.NET)
+  - ├── 📁 interfaz/ # Código fuente del frontend (React)
+  - ├── 📁 BDD/ # Scripts, diagramas y backups de SQL Server
+  - ├── 📄 .gitignore # Archivos ignorados por Git
+  - └── 📄 README.md # Este archivo
 
 ---
 
