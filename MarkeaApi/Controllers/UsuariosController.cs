@@ -1,14 +1,12 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using System;
 using System.Data;
-using System.Threading.Tasks;
 
 [ApiController]
 [Route("api/[controller]")]
 public class UsuariosController : ControllerBase
 {
-    private readonly string cadenaConexion = "Server=MSI\\MSSQLSERVER01;Database=MARKEA;Integrated Security=True;TrustServerCertificate=True;";
     private readonly ServiciosUsuarios _serviciosUsuarios;
 
     public UsuariosController(ServiciosUsuarios serviciosUsuarios)
@@ -17,11 +15,11 @@ public class UsuariosController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] IniciarSesionDto loginRequest)
+    public IActionResult Login([FromBody] IniciarSesionDto loginRequest)
     {
         try
         {
-            var userSession = await _serviciosUsuarios.Login(loginRequest);
+            var userSession = _serviciosUsuarios.Login(loginRequest);
             return Ok(userSession);
         }
         catch (Exception ex)
@@ -29,14 +27,26 @@ public class UsuariosController : ControllerBase
             return Unauthorized(new { message = ex.Message });
         }
     }
+
     [HttpPost("registrar")]
     public IActionResult RegistrarUsuario([FromBody] RegistroUsuarioDto nuevoUsuario)
     {
         try
         {
-            using (var conexion = new SqlConnection(cadenaConexion))
+            using (var conexion = new SqlConnection(ConexionSQL.ConnectionString))
             {
                 conexion.Open();
+
+                using (var verificarCorreo = new SqlCommand("SELECT COUNT(*) FROM Usuarios WHERE correo = @correo", conexion))
+                {
+                    verificarCorreo.Parameters.AddWithValue("@correo", nuevoUsuario.Correo);
+                    int count = (int)verificarCorreo.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        return Conflict(new { message = "Ya existe una cuenta registrada con ese correo." });
+                    }
+                }
 
                 using (var comando = new SqlCommand("sp_registrar_usuario", conexion))
                 {
@@ -50,15 +60,11 @@ public class UsuariosController : ControllerBase
                     comando.ExecuteNonQuery();
                 }
             }
+
             return Ok(new { message = "Usuario registrado exitosamente" });
         }
         catch (SqlException ex)
         {
-            if (ex.Number == 50000)
-            {
-                return Conflict(new { message = "El correo electrónico ya está registrado." });
-            }
-
             return StatusCode(500, new { message = "Error en la base de datos.", error = ex.Message });
         }
         catch (Exception ex)
@@ -66,4 +72,5 @@ public class UsuariosController : ControllerBase
             return StatusCode(500, new { message = "Ocurrió un error inesperado.", error = ex.Message });
         }
     }
+
 }

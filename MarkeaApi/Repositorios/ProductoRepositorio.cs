@@ -1,24 +1,21 @@
 ﻿using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
 using System.Data;
-using System.Threading.Tasks;
 
 public class ProductoRepositorio
 {
-    private readonly string _connectionString = "Server=MSI\\MSSQLSERVER01;Database=MARKEA;Integrated Security=True;TrustServerCertificate=True;";
-    // En ProductoRepositorio.cs
-
-    public async Task<IEnumerable<ProductoDto>> ObtenerProductosDisponiblesAsync()
+    public IEnumerable<ProductoDto> ObtenerProductosDisponibles()
     {
         var productos = new List<ProductoDto>();
-        using (var connection = new SqlConnection(_connectionString))
+        using (var connection = new SqlConnection(ConexionSQL.ConnectionString))
         {
-            await connection.OpenAsync();
+            connection.Open();
             using (var command = new SqlCommand("sp_obtener_productos_disponibles", connection))
             {
                 command.CommandType = CommandType.StoredProcedure;
-                using (var reader = await command.ExecuteReaderAsync())
+                using (var reader = command.ExecuteReader())
                 {
-                    while (await reader.ReadAsync())
+                    while (reader.Read())
                     {
                         productos.Add(new ProductoDto
                         {
@@ -35,11 +32,12 @@ public class ProductoRepositorio
         }
         return productos;
     }
-    public async Task<int> CrearProductoAsync(PublicarProductoDto producto)
+
+    public int CrearProducto(PublicarProductoDto producto)
     {
-        using (var connection = new SqlConnection(_connectionString))
+        using (var connection = new SqlConnection(ConexionSQL.ConnectionString))
         {
-            await connection.OpenAsync();
+            connection.Open();
             using (var command = new SqlCommand("sp_publicar_producto", connection))
             {
                 command.CommandType = CommandType.StoredProcedure;
@@ -50,8 +48,7 @@ public class ProductoRepositorio
                 command.Parameters.AddWithValue("@precio", producto.Precio);
                 command.Parameters.AddWithValue("@stock", producto.Stock);
 
-               
-                var result = await command.ExecuteScalarAsync();
+                var result = command.ExecuteScalar();
                 if (result != null && result != DBNull.Value)
                 {
                     return (int)result;
@@ -61,20 +58,21 @@ public class ProductoRepositorio
             }
         }
     }
-    public async Task<IEnumerable<ProductoVentaDto>> ObtenerPorVendedorAsync(int idVendedor)
+
+    public IEnumerable<ProductoVentaDto> ObtenerPorVendedor(int idVendedor)
     {
         var productos = new List<ProductoVentaDto>();
-        using (var connection = new SqlConnection(_connectionString))
+        using (var connection = new SqlConnection(ConexionSQL.ConnectionString))
         {
-            await connection.OpenAsync();
+            connection.Open();
             using (var command = new SqlCommand("sp_obtener_productos_por_vendedor", connection))
             {
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@id_vendedor", idVendedor);
 
-                using (var reader = await command.ExecuteReaderAsync())
+                using (var reader = command.ExecuteReader())
                 {
-                    while (await reader.ReadAsync())
+                    while (reader.Read())
                     {
                         productos.Add(new ProductoVentaDto
                         {
@@ -92,11 +90,11 @@ public class ProductoRepositorio
         return productos;
     }
 
-    public async Task ActualizarCompletoAsync(int idProducto, ActualizarProductoDto dto)
+    public void ActualizarCompleto(int idProducto, ActualizarProductoDto dto)
     {
-        using (var connection = new SqlConnection(_connectionString))
+        using (var connection = new SqlConnection(ConexionSQL.ConnectionString))
         {
-            await connection.OpenAsync();
+            connection.Open();
             using (var command = new SqlCommand("sp_actualizar_producto_completo", connection))
             {
                 command.CommandType = CommandType.StoredProcedure;
@@ -106,22 +104,22 @@ public class ProductoRepositorio
                 command.Parameters.AddWithValue("@precio", dto.Precio);
                 command.Parameters.AddWithValue("@stock", dto.Stock);
 
-                await command.ExecuteNonQueryAsync();
+                command.ExecuteNonQuery();
             }
         }
     }
 
-    public async Task EliminarAsync(int idProducto)
+    public void Eliminar(int idProducto)
     {
-        using (var connection = new SqlConnection(_connectionString))
+        using (var connection = new SqlConnection(ConexionSQL.ConnectionString))
         {
-            await connection.OpenAsync();
+            connection.Open();
             using (var command = new SqlCommand("sp_eliminar_producto", connection))
             {
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@id_producto", idProducto);
 
-                await command.ExecuteNonQueryAsync();
+                command.ExecuteNonQuery();
             }
         }
     }

@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 [ApiController]
@@ -17,64 +16,50 @@ public class ProductosController : ControllerBase
         _mongoDbService = mongoDbService;
     }
 
-    // Endpoint para publicar (ya lo tienes)
     [HttpPost("publicar")]
-    public async Task<IActionResult> PublicarProducto([FromForm] PublicarProductoDto productoDto)
+    public IActionResult PublicarProducto([FromForm] PublicarProductoDto productoDto)
     {
         try
         {
-            await _productoService.PublicarProductoCompletoAsync(productoDto);
+             _productoService.PublicarProductoCompleto(productoDto);
             return Ok(new { message = "Producto publicado con éxito" });
         }
         catch (System.Exception ex)
         {
-            // Capturamos cualquier error que pueda ocurrir en el proceso
             return StatusCode(500, new { message = "Error al publicar el producto.", error = ex.Message });
         }
     }
 
-    // --- NUEVOS ENDPOINTS ---
-
-    // GET: /api/Productos
     [HttpGet]
-    public async Task<IActionResult> ObtenerProductos()
+    public IActionResult ObtenerProductos()
     {
-        var productos = await _productoRepositorio.ObtenerProductosDisponiblesAsync();
+        var productos =  _productoRepositorio.ObtenerProductosDisponibles();
         return Ok(productos);
     }
 
-    // GET: /api/Productos/{id}/imagen
     [HttpGet("{id}/imagen")]
-    public async Task<IActionResult> ObtenerImagen(int id)
+    public IActionResult ObtenerImagen(int id)
     {
-        var imagen = await _mongoDbService.ObtenerImagenAsync(id);
+        var imagen =  _mongoDbService.ObtenerImagen(id);
         if (imagen == null)
         {
-            // Opcional: devolver una imagen placeholder por defecto
             return NotFound();
         }
-        // Devuelve la imagen directamente como un archivo
         return File(imagen.ImagenData, imagen.ContentType);
     }
 
-    // En ProductosController.cs
-
-    // ...
     [HttpPut("{id}")]
-    public async Task<IActionResult> ActualizarProducto(int id, [FromBody] ActualizarProductoDto dto)
+    public IActionResult ActualizarProducto(int id, [FromBody] ActualizarProductoDto dto)
     {
-        // Esta línea ahora funcionará y la advertencia desaparecerá
-        await _productoRepositorio.ActualizarCompletoAsync(id, dto);
+        _productoRepositorio.ActualizarCompleto(id, dto);
         return NoContent();
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> EliminarProducto(int id)
+    public IActionResult EliminarProducto(int id)
     {
-        // Esta línea ahora funcionará y la advertencia desaparecerá
-        await _productoRepositorio.EliminarAsync(id);
+         _productoRepositorio.Eliminar(id);
         return NoContent();
     }
-    // ...
 
 }

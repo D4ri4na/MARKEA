@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient; // Para capturar la excepción específica
+using Microsoft.Data.SqlClient; 
 using System;
 using System.Threading.Tasks;
 
@@ -15,7 +15,7 @@ public class VentasController : ControllerBase
     }
 
     [HttpPost("checkout")]
-    public async Task<IActionResult> Checkout([FromBody] CheckoutRequestDto checkoutRequest)
+    public IActionResult Checkout([FromBody] CheckoutRequestDto checkoutRequest)
     {
         if (checkoutRequest == null || checkoutRequest.Productos.Count == 0)
         {
@@ -24,12 +24,11 @@ public class VentasController : ControllerBase
 
         try
         {
-            await _ventaRepositorio.RealizarVentaAsync(checkoutRequest);
+             _ventaRepositorio.RealizarVenta(checkoutRequest);
             return Ok(new { message = "¡Compra realizada con éxito!" });
         }
         catch (SqlException ex)
         {
-            // Capturamos errores específicos de SQL, como el RAISERROR del stock
             return Conflict(new { message = "Error al procesar la venta.", error = ex.Message });
         }
         catch (Exception ex)

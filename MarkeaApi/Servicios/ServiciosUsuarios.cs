@@ -9,9 +9,9 @@ public class ServiciosUsuarios
         _repositorioUsuario = userRepository;
     }
 
-    public async Task<SesionUsuarioDto?> Login(IniciarSesionDto loginRequest)
+    public SesionUsuarioDto? Login(IniciarSesionDto loginRequest)
     {
 
-        return await _repositorioUsuario.AuthenticateUserAsync(loginRequest.Correo, loginRequest.Contrasena);
+        return _repositorioUsuario.AuthenticateUser(loginRequest.Correo, loginRequest.Contrasena);
     }
 }
