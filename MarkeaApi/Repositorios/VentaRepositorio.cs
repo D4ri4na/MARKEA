@@ -4,7 +4,7 @@ using System.Data;
 using System.Xml.Linq;
 using System.Linq;
 
-public class VentaRepositorio
+public class VentaRepositorio : BaseRepository
 {
     public void RealizarVenta(CheckoutRequestDto checkoutRequest)
     {
@@ -18,50 +18,31 @@ public class VentaRepositorio
             )
         );
 
-        using (var connection = new SqlConnection(ConexionSQL.ConnectionString))
+        var xmlParam = new SqlParameter("@productos", productosXml.ToString())
         {
-            connection.Open();
-            using (var command = new SqlCommand("sp_realizar_venta", connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
+            DbType = DbType.Xml
+        };
 
-                command.Parameters.AddWithValue("@id_comprador", checkoutRequest.IdComprador);
+        var parameters = new[]
+        {
+            new SqlParameter("@id_comprador", checkoutRequest.IdComprador),
+            xmlParam
+        };
 
-                SqlParameter xmlParam = command.Parameters.AddWithValue("@productos", productosXml.ToString());
-                xmlParam.DbType = DbType.Xml;
-
-                command.ExecuteNonQuery();
-            }
-        }
+        ExecuteNonQuery("sp_realizar_venta", parameters);
     }
 
     public IEnumerable<CompraRecienteDto> ObtenerPorComprador(int idComprador)
     {
-        var compras = new List<CompraRecienteDto>();
-        using (var connection = new SqlConnection(ConexionSQL.ConnectionString))
-        {
-            connection.Open();
-            using (var command = new SqlCommand("sp_obtener_compras_por_comprador", connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@id_comprador", idComprador);
+        var parameters = new[] { new SqlParameter("@id_comprador", idComprador) };
 
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        compras.Add(new CompraRecienteDto
-                        {
-                            Id = (int)reader["Id"],
-                            NombreProducto = (string)reader["NombreProducto"],
-                            Precio = (decimal)reader["Precio"],
-                            Fecha = (System.DateTime)reader["fecha"],
-                            NombreVendedor = (string)reader["NombreVendedor"]
-                        });
-                    }
-                }
-            }
-        }
-        return compras;
+        return Query("sp_obtener_compras_por_comprador", reader => new CompraRecienteDto
+        {
+            Id = (int)reader["Id"],
+            NombreProducto = (string)reader["NombreProducto"],
+            Precio = (decimal)reader["Precio"],
+            Fecha = (System.DateTime)reader["fecha"],
+            NombreVendedor = (string)reader["NombreVendedor"]
+        }, parameters);
     }
 }

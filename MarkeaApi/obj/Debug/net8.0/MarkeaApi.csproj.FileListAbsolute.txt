@@ -177,3 +177,6 @@ C:\Users\dpola\MARKEA\MarkeaAPI\bin\Debug\net8.0\MongoDB.Driver.dll
 C:\Users\dpola\MARKEA\MarkeaAPI\bin\Debug\net8.0\SharpCompress.dll
 C:\Users\dpola\MARKEA\MarkeaAPI\bin\Debug\net8.0\Snappier.dll
 C:\Users\dpola\MARKEA\MarkeaAPI\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\dpola\MARKEA\MarkeaAPI\bin\Debug\net8.0\Castle.Core.dll
+C:\Users\dpola\MARKEA\MarkeaAPI\bin\Debug\net8.0\FluentAssertions.dll
+C:\Users\dpola\MARKEA\MarkeaAPI\bin\Debug\net8.0\Moq.dll
