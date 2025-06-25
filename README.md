@@ -59,11 +59,11 @@ Este README sirve como **guía integral** para comprender el proyecto y ejecutar
 
 ## 📁 Estructura del Repositorio
 
-├── 📁 MarkeaApi/ # Código fuente del backend (.NET)
-├── 📁 interfaz/ # Código fuente del frontend (React)
-├── 📁 BDD/ # Scripts, diagramas y backups de SQL Server
-├── 📄 .gitignore # Archivos ignorados por Git
-└── 📄 README.md # Este archivo
+  ├── 📁 MarkeaApi/ # Código fuente del backend (.NET)
+  ├── 📁 interfaz/ # Código fuente del frontend (React)
+  ├── 📁 BDD/ # Scripts, diagramas y backups de SQL Server
+  ├── 📄 .gitignore # Archivos ignorados por Git
+  └── 📄 README.md # Este archivo
 
 ---
 
@@ -103,7 +103,7 @@ La API estará disponible en https://localhost:7020
 
 ---
 
-###💻 3. Configuración del Frontend (React)
+### 💻 3. Configuración del Frontend (React)
 
 # Navega al frontend
 cd interfaz
@@ -115,7 +115,9 @@ npm install
 npm run dev
 La aplicación se abrirá en http://localhost:8080.
 
-###👥 Autores
+---
+
+### 👥 Autores
 
 Dariana Pol Aramayo – Desarrollo Completo
 GitHub: D4ri4na
