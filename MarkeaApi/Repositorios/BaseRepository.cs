@@ -19,7 +19,7 @@ public abstract class BaseRepository
                 {
                     command.Parameters.AddRange(parameters.ToArray());
                 }
-                command.ExecuteNonQuery(); // Versión síncrona
+                command.ExecuteNonQuery(); 
             }
         }
     }

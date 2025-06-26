@@ -1,5 +1,53 @@
 [
   {
+    "ContainingType": "FavoritosController",
+    "Method": "AgregarFavorito",
+    "RelativePath": "api/Favoritos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "favorito",
+        "Type": "FavoritoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FavoritosController",
+    "Method": "EliminarFavorito",
+    "RelativePath": "api/Favoritos",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "favorito",
+        "Type": "FavoritoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FavoritosController",
+    "Method": "ObtenerFavoritos",
+    "RelativePath": "api/Favoritos/{idUsuario}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PerfilController",
     "Method": "ObtenerDatosPerfil",
     "RelativePath": "api/Perfil/{usuarioId}",

@@ -28,6 +28,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<RepositorioUsuario>();
 builder.Services.AddSingleton<ServiciosUsuarios>();
 
+builder.Services.AddScoped<FavoritoRepositorio, FavoritoRepositorio>();
+
 
 var app = builder.Build();
 

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System;
 
-// La clase hereda de BaseRepository e implementa su interfaz correspondiente
 public class ProductoRepositorio : BaseRepository
 {
     public IEnumerable<ProductoDto> ObtenerProductosDisponibles()
